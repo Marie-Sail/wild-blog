@@ -1,4 +1,19 @@
+@if (article.isPublished){
 <section>
-    <h1>Salut salut ! </h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit lorem, posuere vitae malesuada vitae, fringilla at enim. Cras interdum orci eu dolor ullamcorper fringilla. Nullam pharetra, massa sit amet commodo varius, ligula dui sagittis arcu, non lacinia risus sapien sit amet velit. Cras cursus tortor interdum enim dictum rutrum. Praesent eget neque at augue laoreet interdum eu nec risus. Integer vehicula ligula quis arcu posuere, id commodo lorem mattis. Suspendisse sodales elementum bibendum. Nullam rutrum mauris ac erat pellentesque, a semper neque blandit. Sed congue, neque vestibulum pulvinar ullamcorper, ante turpis fringilla nulla, non pellentesque massa quam et ante. Quisque congue enim vitae orci vestibulum lacinia. Donec at risus massa. Curabitur ut turpis condimentum, venenatis eros eu, commodo neque. Pellentesque ullamcorper sed erat eget scelerisque. Pellentesque vitae lacus nec felis cursus consequat. Maecenas dictum vestibulum mattis. </p>
+    <h1>{{article.title}} </h1>
+    <h3>{{article.author}}</h3>
+    <img [src]="article.image"  />
+<p>{{article.content}} </p>
+
+<input type="text" [(ngModel)]="article.comment"/>
+
+<p>{{article.comment}}</p>
+
+<button (click)="togglePublication()"> Dépublier l'article</button>
+
 </section>
+}
+
+@else {
+    <button (click)="togglePublication()">Publier</button>
+}
