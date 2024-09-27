@@ -1,6 +1,7 @@
 @if (article.isPublished){
 <section>
     <h1>{{article.title}} </h1>
+    <h2>{{article.isPublished? "article publier" : "article non publier"}}</h2>
     <h3>{{article.author}}</h3>
     <img [src]="article.image"  />
 <p>{{article.content}} </p>
@@ -8,6 +9,7 @@
 <input type="text" [(ngModel)]="article.comment"/>
 
 <p>{{article.comment}}</p>
+
 
 <button (click)="togglePublication()"> Dépublier l'article</button>
 

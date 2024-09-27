@@ -19,6 +19,8 @@ export class ArticleComponent {
     comment: ''
   };
 
+  
+
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;
   }
