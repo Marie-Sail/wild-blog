@@ -1,0 +1,83 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <!-- <div>
+        Le formulaire est-il soumis ? {{contactForm.submitted}}
+      </div>
+      <div>
+        Le formulaire est-il valide ? {{contactForm.valid}}
+      </div>
+      <div>
+        Le formulaire est-il INvalide ? {{contactForm.invalid}}
+      </div> -->
+
+    <fieldset>
+      <label for="lastname">Nom</label>
+      <input id="lastname" name="lastname" [(ngModel)]="newMessage.lastname" #lastname="ngModel" type="text" required minlength="2" maxlength="15">
+    </fieldset>
+
+    @if (lastname.errors) {
+        <div>
+          @if (lastname.errors['required']) {
+             <span [hidden]="!contactForm.submitted">Le nom est requis</span>
+          }
+          @if (lastname.errors['minlength']) {
+            <span> Le nom doit comporter au moins 2 caractères</span>
+          }
+          @if (lastname.errors['maxlength']){
+            <span> Le nom ne doit pas dépasser 15 caractères</span>
+          }
+        </div>
+      }
+
+  <fieldset>
+    <label for="firstname">Prénom</label>
+    <input id="firstname" name="firstname" type="text" [(ngModel)]="newMessage.firstname" #firstname="ngModel" required minlength="2" maxlength="15">
+    @if (firstname.errors) {
+      <div>
+        @if (firstname.errors['required']) {
+          <span [hidden]="!contactForm.submitted">Le prénom est requis</span>
+        }
+        @if (firstname.errors['minlength']) {
+          <span> Le prénom doit comporter au moins 2 caractères</span>
+        }
+        @if (firstname.errors['maxlength']){
+            <span> Le prénom ne doit pas dépasser 15 caractères</span>
+          }
+      </div>
+    }
+  </fieldset>
+
+  <fieldset>
+    <label for="email">Contact</label>
+    <input id="email" name="email" type="email" [(ngModel)]="newMessage.email" #email="ngModel" required email>
+    @if (email.errors) {
+      <div>
+        @if (email.errors['required']) {
+          <span [hidden]="!contactForm.submitted">L'email est requis</span>
+        }
+        @if (email.errors['email']) {
+          <span>L'email est invalide</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+  <fieldset>
+    <label for="content">Contenu du message</label>
+    <textarea id="content" name="content" [(ngModel)]="newMessage.content" #content="ngModel" required minlength="20" rows="4" cols="50"></textarea>
+    @if (content.errors) {
+      <div>
+        @if (content.errors['required']) {
+          <span [hidden]="!contactForm.submitted">Le contenu du message est requis</span>
+        }
+        @if (content.errors['minlength']) {
+          <span>Le contenu doit comporter au moins 20 caractères</span>
+        }
+      </div>
+    }
+  </fieldset>
+
+
+    <button type="reset">Restaurer</button>
+    <button type="submit">Envoyer</button>
+</form>
