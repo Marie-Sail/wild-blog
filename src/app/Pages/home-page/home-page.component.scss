@@ -1,0 +1,33 @@
+*{
+    list-style: none;
+    box-sizing: border-box;
+    color: rgb(45, 45, 45);
+}
+
+
+main {
+    margin: 0 10rem 0 10rem;
+  ul{
+  
+  display: flex;
+  justify-content: space-around;
+  
+    section {
+  
+      display: flex;
+      flex-direction: column;
+      width: 20em;
+      padding: 1em;
+      background-color: antiquewhite;
+  
+      img {
+        width: 100%;
+      }
+    }
+  
+    .goodArticle {
+      background-color: rgb(255, 204, 35);
+      
+    }
+  }
+  }
