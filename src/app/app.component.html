@@ -1,41 +1,8 @@
-<main class="main">
-  <!-- <h1>Hello, {{ title }}</h1>
-  <app-article></app-article> -->
+<nav>
+  <a [routerLink]="['']">Accueil</a>
 
-  <ul>
-  @for(article of articles; track $index ){
-   
-    @if (article.isPublished){
-      <li>
-       
-          <section [ngClass]="{'goodArticle': article.likes>=100}">
-              <h1 [ngStyle]="{'color': article.likes >= 150 ? 'red': 'black'}">{{article.title}} </h1>
-              <h2>{{article.isPublished? "article publier" : "article non publier"}}</h2>
-              <h3>{{article.author}}</h3>
-              <img [src]="article.image"  />
-              <p>{{article.likes}} Likes</p>
-              <p>{{article.content}} </p>
-          
-              <input type="text" [(ngModel)]="article.comment"/>
-          
-              <p>{{article.comment}}</p>
-          
-              <button (click)="togglePublication(article)"> Dépublier l'article</button>
-          
-          </section>
-          
-        
-    </li>
-   }
-   @else {<button (click)="togglePublication(article)"> Publier l'article</button>}
-   
-  }
-  
-  @empty {
-    <li>Aucun article publié pour le moment</li>
-  }
-</ul>
+  <a [routerLink]="['/article/:id']">Article</a>
 
-</main>
+</nav>
 
-
+<router-outlet/>
