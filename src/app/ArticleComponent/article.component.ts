@@ -17,12 +17,12 @@ export class ArticleComponent {
 
 
   @Output() notifyParent: EventEmitter<string>= new EventEmitter<string>();
-  @Output() notifyParent2: EventEmitter<number>= new EventEmitter<number>();
+
 
   addLike() {
     
     this.notifyParent.emit(this.article.title);
-    this.notifyParent2.emit(this.article.likes++);
+    this.article.likes++
   };
 
   togglePublication(): void {
