@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ArticleComponent } from "../../ArticleComponent/article.component";
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -13,6 +13,8 @@ export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   
   articleId!: number;
+
+
 
 
   ngOnInit() {

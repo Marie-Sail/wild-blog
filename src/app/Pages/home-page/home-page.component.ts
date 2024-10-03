@@ -1,27 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ArticleComponent } from '../../ArticleComponent/article.component';
+import { Article } from '../../Models/article.model';
 
-interface Article {
-  title :string
-  author :string
-  content: string
-  image: string
-  isPublished:boolean
-  comment:string
-  likes: number 
-}
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,ArticleComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
 
-
+  messageToChild: string = 'Bonjour depuis le parent !';
   
   articles = [
     { 

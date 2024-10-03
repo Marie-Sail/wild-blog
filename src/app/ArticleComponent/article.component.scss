@@ -1,6 +1,34 @@
 section {
-    background-color: aquamarine;
-    padding: 1rem;
-    width: 40rem;
-    
+  color: rgb(83, 83, 83);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 30em;
+  height: 100%;
+  padding: 1em;
+  border: solid 2px rgb(225, 225, 225);
+  box-shadow: 5px 5px 30px -13px #000000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  h1 {
+    text-align: center;
+    font-size: 2em;
+  }
+  img {
+    width: 100%;
+  }
+  button {
+    width: 100%;
+    padding: 1em;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(115, 36, 36);
+    color: rgb(255, 255, 255);
+    font-size: 1em;
+  }
+}
+
+.goodArticle {
+  border: solid 5px rgb(255, 204, 35);
 }

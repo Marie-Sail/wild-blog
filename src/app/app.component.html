@@ -1,11 +1,11 @@
- <nav>
-  <a [routerLink]="['']">Accueil</a>
+<nav>
+  <ul>
+    <li><a [routerLink]="['']">Accueil</a></li>
 
-  <a [routerLink]="['/article/:id']">Article</a>
+    <li><a [routerLink]="['/article/:id']">Article</a></li>
 
-  <a [routerLink]="['/form']">Formulaire </a>
+    <li><a [routerLink]="['/form']">Formulaire </a></li>
+  </ul>
 </nav>
 
-<router-outlet/>
-
-
+<router-outlet />
