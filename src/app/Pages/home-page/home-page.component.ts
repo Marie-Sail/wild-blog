@@ -14,7 +14,19 @@ import { Article } from '../../Models/article.model';
 })
 export class HomePageComponent {
 
-  messageToChild: string = 'Bonjour depuis le parent !';
+
+  // messageFromChild: string = '';
+
+  // handleNotification(message: string) {
+  //   this.messageFromChild = message;
+  // }
+
+  articleLike: string ="";
+
+  handleNotificationLike(message: string) {
+    this.articleLike = message;
+  }
+
   
   articles = [
     { 

@@ -2,7 +2,7 @@
   <ul>
     @for(article of articles; track $index ){ @if (article.isPublished){
     <li>
-      <app-article [article]="article"></app-article>
+      <app-article [article]="article"  (notifyParent)="handleNotificationLike($event)"></app-article>
     </li>
     } @else {<button (click)="togglePublication(article)">
       Publier l'article</button
@@ -10,4 +10,7 @@
     <li>Aucun article publié pour le moment</li>
     }
   </ul>
+
+  <p>L'article {{ articleLike }} vient d'être liké </p>
+
 </main>
