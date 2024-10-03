@@ -15,13 +15,7 @@ import { Article } from '../../Models/article.model';
 export class HomePageComponent {
 
 
-  // messageFromChild: string = '';
-
-  // handleNotification(message: string) {
-  //   this.messageFromChild = message;
-  // }
-
-  articleLike: string ="";
+  articleLike!: string;
 
   handleNotificationLike(message: string) {
     this.articleLike = message;
