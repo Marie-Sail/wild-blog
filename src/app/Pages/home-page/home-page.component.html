@@ -1,14 +1,22 @@
 <main class="main">
   <ul>
-    @for(article of articles; track $index ){ @if (article.isPublished){
-    <li>
-      <app-article [article]="article"  (notifyParent)="handleNotificationLike($event)"></app-article>
-    </li>
-    } @else {<button (click)="togglePublication(article)">
-      Publier l'article</button
-    >} } @empty {
+    <!-- articles$ | async -->
+    @for(article of articles$ | async; track $index ){ 
+      @if (article.isPublished){
+        <li>
+          <app-article
+          [article]="article"  (notifyParent)="handleNotificationLike($event)"
+          ></app-article>
+        </li>
+      } 
+     @else {<button (click)="togglePublication(article)">
+       Publier l'article</button>
+      } 
+    }
+    @empty {
     <li>Aucun article publié pour le moment</li>
     }
+  
   </ul>
 
   <p>L'article {{ articleLike }} vient d'être liké </p>

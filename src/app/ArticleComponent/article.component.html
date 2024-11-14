@@ -1,20 +1,23 @@
-@if (article.isPublished){
+<!-- @if (article.isPublished){ -->
 
-<section [ngClass]="{ goodArticle: article.likes >= 100 }">
-    <h1 [ngStyle]="{ color: article.likes >= 150 ? ' rgb(189, 17, 17)' : 'rgb(83, 83, 83)' }">
+<section [ngClass]="{ goodArticle: article.likeCount >= 100 }">
+
+  <a [routerLink]="['/article', article.id]">
+    <h1 [ngStyle]="{ color: article.likeCount >= 150 ? ' rgb(189, 17, 17)' : 'rgb(83, 83, 83)' }">
       {{ article.title }}
-    </h1>
+    </h1></a>
     <h2>
       {{ article.isPublished ? "article publier" : "article non publier" }}
     </h2>
-    <h3>{{ article.author }}</h3>
+    
     <img [src]="article.image" />
-    <p>{{ article.likes }} Likes</p>
+    
+    <p>{{ article.likeCount }} Likes</p>
     <p>{{ article.content }}</p>
 
-    <input type="text" [(ngModel)]="article.comment" />
+    <!-- <input type="text" [(ngModel)]="article.comment" />
 
-    <p>{{ article.comment }}</p>
+    <p>{{ article.comment }}</p> -->
 
     <button (click)="togglePublication()">
       Dépublier l'article
@@ -23,9 +26,9 @@
     <button (click)="addLike()">Like</button>
 
   </section>
-}
+<!-- }
 
 @else {
     <button class="buttonPublier" (click)="togglePublication()">Publier</button>
-}
+} -->
 

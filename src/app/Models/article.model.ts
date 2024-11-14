@@ -1,10 +1,15 @@
 
 export interface Article {
-    title :string
-    author :string
+    id: string
+    title: string
+    // author: string
     content: string
+    createdAt: Date
+    likeCount: number 
     image: string
-    isPublished:boolean
-    comment:string
-    likes: number 
+    isPublished: boolean
+    categoryName: string
+    // comment: string
+    isLiked: boolean
+    
   }
