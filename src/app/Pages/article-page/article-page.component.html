@@ -2,4 +2,8 @@
 
 <p>URL id : {{articleId}}</p>
 
-<app-article [article]='article' ></app-article>
+@if( article$ | async; as article){
+<app-article  [article]='article' ></app-article>
+}
+
+<app-article *ngIf="article$ | async as article" [article]='article' ></app-article>
