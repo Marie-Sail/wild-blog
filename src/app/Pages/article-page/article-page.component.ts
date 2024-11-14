@@ -2,7 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { ArticleComponent } from "../../ArticleComponent/article.component";
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Article } from '../../Models/article.model';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../../Services/api.service';
 
 
 @Component({
@@ -14,27 +14,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  http= inject(HttpClient);
+
+  private apiService = inject(ApiService);
   
   articleId!: number;
 
   article!: Article;
+
+  // article$!:Observable<Article>
 
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
     });
-    this.getArticleById(this.articleId)
+    
+    this.apiService.getArticleById(this.articleId).subscribe(data => {
+              this.article = data;
+            },
+            );
+
   }
 
-  getArticleById(id: number){
-
-    this.http.get<Article>(`http://localhost:3000/articles/${id}`).subscribe(data => {
-      this.article = data;
-    },
-    );
-  }
-
-
+  
 }
