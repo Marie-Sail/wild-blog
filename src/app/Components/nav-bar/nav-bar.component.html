@@ -1,0 +1,25 @@
+
+<nav>
+  <ul>
+    <li><a [routerLink]="['']">Accueil</a></li>
+
+    <li><a [routerLink]="['/article/:id']">Article</a></li>
+
+    <li><a [routerLink]="['/profile']">Mon profil</a></li>
+
+    @if (isLoggedIn()){
+
+      <li><button (click)="logOut()" [routerLink]="['/']" >Se déconnecter</button></li>
+
+      @if (isAdmin()){
+        <li><a [routerLink]="['/admin']">Admin</a></li>
+      }
+
+    } @else {
+
+      <li><a [routerLink]="['/form']">S'inscrire</a></li>
+      <li><a [routerLink]="['/login']">Se connecter</a></li>
+    }
+
+  </ul>
+</nav>
