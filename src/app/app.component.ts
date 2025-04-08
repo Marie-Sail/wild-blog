@@ -3,6 +3,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { ArticleComponent } from './ArticleComponent/article.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {NavBarComponent} from "./Components/nav-bar/nav-bar.component";
 
 
 interface Article {
@@ -12,13 +13,13 @@ interface Article {
   image: string
   isPublished:boolean
   comment:string
-  likes: number 
+  likes: number
 }
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ArticleComponent,FormsModule, CommonModule,RouterLink],
+  imports: [RouterOutlet,FormsModule, CommonModule,RouterLink, NavBarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
