@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ArticleComponent } from './ArticleComponent/article.component';
+import { ArticleComponent } from './Components/ArticleComponent/article.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {NavBarComponent} from "./Components/nav-bar/nav-bar.component";

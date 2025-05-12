@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ArticleComponent } from '../../ArticleComponent/article.component';
+import { ArticleComponent } from '../../Components/ArticleComponent/article.component';
 import { Article } from '../../Models/article.model';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../Services/api.service';
@@ -31,9 +31,9 @@ export class HomePageComponent {
   }
 
   togglePublication(article: Article): void {
-   
-    article.isPublished = !article.isPublished;   
-   
+
+    article.isPublished = !article.isPublished;
+
   }
 
 }

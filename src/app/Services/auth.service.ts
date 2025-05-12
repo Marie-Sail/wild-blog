@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {jwtDecode} from "jwt-decode";
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8080';
   private http = inject(HttpClient);
+  private router = inject(Router);
+
 
   login(email: string, password: string): Observable<string> {
     return this.http
@@ -64,15 +67,35 @@ export class AuthService {
       return false;
     }
   }
-
-  getUserRole(): string | null {
+  getUserRoles(): Object[] | null {
     const token = this.getToken();
     if (!token) return null;
     try {
       const decodedToken: any = jwtDecode(token);
-      return decodedToken.roles?.[0] || null;
+
+      return decodedToken.roles || null;
     } catch {
       return null;
+    }
+  }
+  getUserRole(): string[] | null {
+    const token = this.getToken();
+    if (!token) return null;
+    try {
+      const decodedToken: any = jwtDecode(token);
+
+      return decodedToken.roles || null;
+    } catch {
+      return null;
+    }
+  }
+  redirectAccordingToRole() {
+    const roles = this.getUserRole();
+    if(roles && roles.includes('ROLE_ADMIN')) {
+      this.router.navigate(['/admin']);
+    }
+    if (roles && roles.includes('ROLE_USER')) {
+      this.router.navigate(['/profile']);
     }
   }
 }

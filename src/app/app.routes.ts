@@ -3,9 +3,9 @@ import { Routes } from '@angular/router';
 import { HomePageComponent } from './Pages/home-page/home-page.component';
 import { ArticlePageComponent } from './Pages/article-page/article-page.component';
 import { NotFoundComponent } from './Pages/not-found/not-found.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactFormComponent } from './Components/contact-form/contact-form.component';
 import { SignupFormComponent } from './Pages/signup-form/signup-form.component';
-import {LoginFormComponent} from "./login-form/login-form.component";
+import {LoginFormComponent} from "./Components/login-form/login-form.component";
 import {ProfilePageComponent} from "./Pages/profile-page/profile-page.component";
 import {roleGuard} from "./guards/role.guard";
 import {visitorOnlyGuard} from "./guards/visitor-only.guard";
@@ -28,7 +28,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: AdminPageComponent,
-    canActivate: [roleGuard('admin')]
+    canActivate: [roleGuard('ROLE_ADMIN')]
   },
   {
     path: 'login',
